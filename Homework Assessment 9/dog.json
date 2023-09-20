@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "COVID-19 Active Cases (10 Oct 2020)",
+    "title": "Annual CO2 emissions per capita by Country",
     "width": 800,
     "height": 400,
     "projection": {"type": "equalEarth"},
@@ -10,27 +10,30 @@
     },
     "transform": [
       {
-        "lookup": "properties.NAME",
+        "lookup": "id",
         "from": {
           "data": {
-            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/data/covid_10_10_2020.csv"
+            "url": "https://raw.githubusercontent.com/faw01/FIT3179/main/Homework%20Assessment%209/co-emissions-per-capita.csv"
           },
           "key": "Country",
-          "fields": ["Active"]
+          "fields": ["Annual CO2 emissions per capita", "Year"]
         }
       },
-      {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
+      {
+        "calculate": "toDate(datum.Year)",
+        "as": "Year"
+      }
     ],
     "mark": {"type": "geoshape"},
     "encoding": {
       "color": {
-        "field": "Active Cases",
-        "type": "quantitative",
-        "scale": {"type": "log"}
+        "field": "Annual CO2 emissions per capita",
+        "type": "quantitative" 
       },
       "tooltip": [
         {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-        {"field": "Active", "type": "quantitative"}
+        {"field": "Annual CO2 emissions per capita", "type": "quantitative", "format": ".1f", "title": "Annual CO2 emissions per capita"},
+        {"field": "YearDate", "type": "temporal", "title": "Year"}
       ]
     }
-  }
+}
