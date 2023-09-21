@@ -10,7 +10,7 @@
   <script>
     const spec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "title": "Annual Greenhouse Gas Emissions by Country (2021)",
+      "title": "Annual greenhouse gas emissions per capita by Country per capita (2021)",
       "width": 800,
       "height": 400,
       "background": "skyblue",
@@ -33,10 +33,10 @@
                       "lookup": "properties.NAME",
                       "from": {
                           "data": {
-                              "url": "https://raw.githubusercontent.com/faw01/FIT3179/main/Homework%20Assessment%209/total-ghg-emissions.csv"
+                              "url": "https://raw.githubusercontent.com/faw01/FIT3179-Homework-Asessment-Vega-Lite-Maps/main/Homework%20Assessment%209/per-capita-ghg-emissions.csv"
                           },
                           "key": "Country",
-                          "fields": ["Annual greenhouse gas emissions"]
+                          "fields": ["Annual greenhouse gas emissions per capita"]
                       }
                   }
               ],
@@ -47,18 +47,18 @@
               },
               "encoding": {
                   "color": {
-                      "field": "Annual greenhouse gas emissions",
+                      "field": "Annual greenhouse gas emissions per capita", "title": "Emissions per capita (tonnes)",
                       "type": "quantitative",
                       "scale": {
                           "type": "threshold",
-                          "domain": [10000000, 50000000, 100000000, 500000000, 1000000000, 5000000000],
+                          "domain": [0, 1, 2.5, 5, 7.5, 10, 25],
                           "scheme": "yelloworangered",
                           "default": "lightgray"
                       }
                   },
                   "tooltip": [
                       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-                      {"field": "Annual greenhouse gas emissions", "type": "quantitative", "format": ",.0f", "title": "Annual Greenhouse Gas Emissions (in tonnes)"}
+                      {"field": "Annual greenhouse gas emissions per capita", "type": "quantitative", "format": ",.0f", "title": "Annual greenhouse gas emissions per capita (in tonnes)"}
                   ]
               }
           }
