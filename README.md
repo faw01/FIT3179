@@ -1,4 +1,4 @@
-# FIT3179 Homework Assessment
+# FIT3179-Homework-Assessment-Vega-Lite-Maps
 32619065
 
 ## Homework Assessment - Vega-Lite Maps
