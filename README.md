@@ -1,4 +1,4 @@
-# FIT3179 Data Visualisation 2
+# FIT3179 Homework Assessment
 32619065
 
 ## Homework Assessment - Vega-Lite Maps
